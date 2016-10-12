@@ -10,6 +10,6 @@ import com.openshop.product.exception.ProductOperationFailedException;
  */
 public interface AlterProductService {
 
-    Product upsertProduct(final AlterProductRequestContext context) throws ProductOperationFailedException;
+    Product upsertProduct(final AlterProductRequestContext context) throws ProductOperationFailedException, IllegalArgumentException;
 
 }

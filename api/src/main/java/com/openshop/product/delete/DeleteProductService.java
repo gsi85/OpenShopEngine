@@ -9,6 +9,6 @@ import com.openshop.product.exception.ProductOperationFailedException;
  */
 public interface DeleteProductService {
 
-    boolean deleteProduct(final DeleteProductRequestContext context) throws ProductOperationFailedException;
+    int deleteProduct(final DeleteProductRequestContext context) throws ProductOperationFailedException, IllegalArgumentException;
 
 }

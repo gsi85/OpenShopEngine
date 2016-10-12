@@ -13,6 +13,8 @@ import java.util.List;
  */
 public final class Product {
 
+    public static final long NEW_INSTANCE_ID = -1;
+
     private final long id;
     private final String name;
     private final String description;
@@ -55,7 +57,7 @@ public final class Product {
 
     public static class Builder {
 
-        private long id;
+        private long id = NEW_INSTANCE_ID;
         private String name;
         private String description;
         private Price price;

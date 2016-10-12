@@ -22,6 +22,16 @@
       <artifactId>service</artifactId>
       <scope>runtime</scope>
     </dependency>
+    <dependency>
+      <groupId>com.openshop</groupId>
+      <artifactId>common</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.openshop</groupId>
+      <artifactId>dao</artifactId>
+      <scope>runtime</scope>
+    </dependency>
   </dependencies>
 
 
