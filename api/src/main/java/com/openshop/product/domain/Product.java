@@ -20,7 +20,7 @@ public final class Product {
     private final String description;
     private final Price price;
     private final List<URL> images;
-    private final List<Product> subProducts;
+    private final List<Component> components;
 
     private Product(final Builder builder) {
         id = builder.id;
@@ -28,7 +28,7 @@ public final class Product {
         description = builder.description;
         price = builder.price;
         images = builder.images != null ? unmodifiableList(builder.images) : null;
-        subProducts = builder.subProducts != null ? unmodifiableList(builder.subProducts) : null;
+        components = builder.components != null ? unmodifiableList(builder.components) : null;
     }
 
     public long getId() {
@@ -51,8 +51,8 @@ public final class Product {
         return images;
     }
 
-    public List<Product> getSubProducts() {
-        return subProducts;
+    public List<Component> getComponents() {
+        return components;
     }
 
     public static class Builder {
@@ -62,7 +62,7 @@ public final class Product {
         private String description;
         private Price price;
         private List<URL> images;
-        private List<Product> subProducts;
+        private List<Component> components;
 
         public Builder withId(final long id) {
             this.id = id;
@@ -89,8 +89,8 @@ public final class Product {
             return this;
         }
 
-        public Builder withSubProducts(final List<Product> subProducts) {
-            this.subProducts = subProducts;
+        public Builder withComponents(final List<Component> components) {
+            this.components = components;
             return this;
         }
 

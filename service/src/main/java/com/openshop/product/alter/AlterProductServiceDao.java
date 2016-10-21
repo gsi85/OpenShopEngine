@@ -4,7 +4,7 @@ import com.openshop.product.domain.Product;
 import com.openshop.product.exception.ProductOperationFailedException;
 
 /**
- * Data access interface for inserting or modifying a {@link com.openshop.product.domain.Product}.
+ * Data access interface for inserting or modifying a {@link Product}.
  *
  * @author Laszlo_Sisa
  */

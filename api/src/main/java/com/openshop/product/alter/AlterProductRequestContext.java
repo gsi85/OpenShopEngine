@@ -8,7 +8,7 @@ import com.openshop.validation.Validation;
  *
  * @author Laszlo_Sisa
  */
-public class AlterProductRequestContext {
+public final class AlterProductRequestContext {
 
     private final Product productToAlter;
 
