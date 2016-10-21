@@ -8,7 +8,7 @@ import com.openshop.product.exception.ComponentOperationFailedException;
  *
  * @author Laszlo_Sisa
  */
-public interface AlterComponentServiceDab {
+public interface AlterComponentServiceDao {
 
     Component upsertComponent(final AlterComponentRequestContext context) throws ComponentOperationFailedException;
 

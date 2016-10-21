@@ -45,6 +45,11 @@
         <artifactId>javax.inject</artifactId>
         <version>1.0</version>
       </dependency>
+      <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongodb-driver</artifactId>
+        <version>3.3.0</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

@@ -15,8 +15,8 @@ public final class Component {
         id = builder.id;
     }
 
-    public static long getNewInstanceId() {
-        return NEW_INSTANCE_ID;
+    public long getId() {
+        return id;
     }
 
     public static class Builder {

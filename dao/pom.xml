@@ -11,4 +11,15 @@
 
   <artifactId>dao</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.openshop</groupId>
+      <artifactId>service</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongodb-driver</artifactId>
+    </dependency>
+  </dependencies>
+
 </project>

@@ -17,7 +17,7 @@ import com.openshop.product.exception.ComponentOperationFailedException;
 public class DefaultAlterComponentService implements AlterComponentService {
 
     @Inject
-    private AlterComponentServiceDab alterComponentServiceDab;
+    private AlterComponentServiceDao alterComponentServiceDao;
 
     public Component upsertComponent(final AlterComponentRequestContext context) throws ComponentOperationFailedException, IllegalArgumentException {
         validateContext(context);
