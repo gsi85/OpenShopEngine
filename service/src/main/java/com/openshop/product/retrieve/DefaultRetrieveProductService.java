@@ -4,9 +4,6 @@ import static com.openshop.validation.Validation.notNull;
 
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import com.openshop.product.domain.Product;
 import com.openshop.product.exception.ProductOperationFailedException;
 
@@ -15,10 +12,8 @@ import com.openshop.product.exception.ProductOperationFailedException;
  *
  * @author Laszlo_Sisa
  */
-@Named("retrieveProductService")
 public class DefaultRetrieveProductService implements RetrieveProductService {
 
-    @Inject
     private RetrieveProductDao retrieveProductDao;
 
     public List<Product> retrieveProducts(final RetrieveProductRequestContext context)

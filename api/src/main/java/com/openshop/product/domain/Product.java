@@ -13,9 +13,9 @@ import java.util.List;
  */
 public final class Product {
 
-    public static final long NEW_INSTANCE_ID = -1;
+    public static final String NEW_INSTANCE_ID = "-1";
 
-    private final long id;
+    private final String id;
     private final String name;
     private final String description;
     private final Price price;
@@ -31,7 +31,7 @@ public final class Product {
         components = builder.components != null ? unmodifiableList(builder.components) : null;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -57,14 +57,14 @@ public final class Product {
 
     public static class Builder {
 
-        private long id = NEW_INSTANCE_ID;
+        private String id = NEW_INSTANCE_ID;
         private String name;
         private String description;
         private Price price;
         private List<URL> images;
         private List<Component> components;
 
-        public Builder withId(final long id) {
+        public Builder withId(final String id) {
             this.id = id;
             return this;
         }

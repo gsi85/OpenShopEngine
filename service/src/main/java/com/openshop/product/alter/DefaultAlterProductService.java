@@ -2,9 +2,6 @@ package com.openshop.product.alter;
 
 import static com.openshop.validation.Validation.notNull;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import com.openshop.product.domain.Product;
 import com.openshop.product.exception.ProductOperationFailedException;
 
@@ -13,10 +10,8 @@ import com.openshop.product.exception.ProductOperationFailedException;
  *
  * @author Laszlo_Sisa
  */
-@Named("alterProductService")
 public class DefaultAlterProductService implements AlterProductService {
 
-    @Inject
     private AlterProductServiceDao alterProductServiceDao;
 
     public Product upsertProduct(final AlterProductRequestContext context) throws ProductOperationFailedException, IllegalArgumentException {

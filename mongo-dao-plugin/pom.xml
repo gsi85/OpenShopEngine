@@ -9,36 +9,29 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>bundle</artifactId>
-  <packaging>pom</packaging>
+  <artifactId>mongo-dao-plugin</artifactId>
 
   <dependencies>
     <dependency>
       <groupId>com.openshop</groupId>
-      <artifactId>api</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.openshop</groupId>
-      <artifactId>service</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.openshop</groupId>
-      <artifactId>common</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.openshop</groupId>
       <artifactId>dao</artifactId>
-      <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>com.openshop</groupId>
-      <artifactId>mongo-dao-plugin</artifactId>
-      <scope>runtime</scope>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongodb-driver</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+    </dependency>
+
+    <!-- Test dependencies -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
-
 </project>
+

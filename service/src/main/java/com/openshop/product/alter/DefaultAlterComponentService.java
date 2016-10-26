@@ -2,9 +2,6 @@ package com.openshop.product.alter;
 
 import static com.openshop.validation.Validation.notNull;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import com.openshop.product.domain.Component;
 import com.openshop.product.exception.ComponentOperationFailedException;
 
@@ -13,15 +10,17 @@ import com.openshop.product.exception.ComponentOperationFailedException;
  *
  * @author Laszlo_Sisa
  */
-@Named("alterComponentService")
 public class DefaultAlterComponentService implements AlterComponentService {
 
-    @Inject
-    private AlterComponentServiceDao alterComponentServiceDao;
+    private final AlterComponentServiceDao alterComponentServiceDao;
+
+    public DefaultAlterComponentService(final AlterComponentServiceDao alterComponentServiceDao) {
+        this.alterComponentServiceDao = alterComponentServiceDao;
+    }
 
     public Component upsertComponent(final AlterComponentRequestContext context) throws ComponentOperationFailedException, IllegalArgumentException {
         validateContext(context);
-        return null;
+        return alterComponentServiceDao.upsertComponent(context);
     }
 
     private void validateContext(final AlterComponentRequestContext context) {

@@ -16,10 +16,6 @@
       <groupId>com.openshop</groupId>
       <artifactId>api</artifactId>
     </dependency>
-    <dependency>
-      <groupId>javax.inject</groupId>
-      <artifactId>javax.inject</artifactId>
-    </dependency>
   </dependencies>
 
 

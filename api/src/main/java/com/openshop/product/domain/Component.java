@@ -7,23 +7,23 @@ package com.openshop.product.domain;
  */
 public final class Component {
 
-    public static final long NEW_INSTANCE_ID = -1;
+    public static final String NEW_INSTANCE_ID = "-1";
 
-    private final long id;
+    private final String id;
 
     private Component(final Builder builder) {
         id = builder.id;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
     public static class Builder {
 
-        private long id = NEW_INSTANCE_ID;
+        private String id = NEW_INSTANCE_ID;
 
-        public Builder withId(final long id) {
+        public Builder withId(final String id) {
             this.id = id;
             return this;
         }
