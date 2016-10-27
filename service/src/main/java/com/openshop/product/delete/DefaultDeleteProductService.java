@@ -2,6 +2,8 @@ package com.openshop.product.delete;
 
 import static com.openshop.validation.Validation.notNull;
 
+import com.openshop.dao.EntityDao;
+import com.openshop.product.domain.Product;
 import com.openshop.product.exception.ProductOperationFailedException;
 
 /**
@@ -11,14 +13,15 @@ import com.openshop.product.exception.ProductOperationFailedException;
  */
 public class DefaultDeleteProductService implements DeleteProductService {
 
-    private DeleteProductDao deleteProductDao;
+    private EntityDao<Product> deleteProductDao;
 
-    public int deleteProduct(final DeleteProductRequestContext context) throws ProductOperationFailedException, IllegalArgumentException {
-        validateContext(context);
-        return deleteProductDao.deleteProduct(context);
+    @Override
+    public boolean deleteProduct(final Product product) throws ProductOperationFailedException, IllegalArgumentException {
+        validateContext(product);
+        return deleteProductDao.deleteEntity(product, Product.class);
     }
 
-    private void validateContext(final DeleteProductRequestContext context) {
+    private void validateContext(final Product context) {
         notNull(context, "context must not be null!");
     }
 }

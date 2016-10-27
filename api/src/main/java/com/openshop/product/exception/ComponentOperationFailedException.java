@@ -7,7 +7,7 @@ package com.openshop.product.exception;
  */
 public class ComponentOperationFailedException extends RuntimeException {
 
-    public ComponentOperationFailedException(final String message) {
-        super(message);
+    public ComponentOperationFailedException(final Throwable cause) {
+        super(cause);
     }
 }

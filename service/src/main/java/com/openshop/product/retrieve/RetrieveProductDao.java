@@ -12,6 +12,6 @@ import com.openshop.product.domain.Product;
  */
 public interface RetrieveProductDao {
 
-    List<Product> retrieveProduct(final RetrieveProductRequestContext context) throws ProductOperationFailedException;
+    List<Product> retrieveProduct(final RetrieveEntityRequestContext context) throws ProductOperationFailedException;
 
 }

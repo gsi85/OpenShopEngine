@@ -11,11 +11,11 @@ import java.util.List;
  *
  * @author Laszlo_Sisa
  */
-public class RetrieveProductRequestContext {
+public class RetrieveEntityRequestContext {
 
     private final List<Condition> conditionsToMatch;
 
-    public RetrieveProductRequestContext(final List<Condition> conditionsToMatch) {
+    public RetrieveEntityRequestContext(final List<Condition> conditionsToMatch) {
         notNull(conditionsToMatch, "conditionsToMatch list can't be null!");
         this.conditionsToMatch = Collections.unmodifiableList(conditionsToMatch);
     }

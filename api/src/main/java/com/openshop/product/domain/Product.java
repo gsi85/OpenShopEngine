@@ -6,14 +6,14 @@ import static java.util.Collections.unmodifiableList;
 import java.net.URL;
 import java.util.List;
 
+import com.openshop.domain.IdentifiableEntity;
+
 /**
  * Domain object describing a certain domain.
  *
  * @author Laszlo_Sisa
  */
-public final class Product {
-
-    public static final String NEW_INSTANCE_ID = "-1";
+public final class Product implements IdentifiableEntity {
 
     private final String id;
     private final String name;
@@ -31,6 +31,7 @@ public final class Product {
         components = builder.components != null ? unmodifiableList(builder.components) : null;
     }
 
+    @Override
     public String getId() {
         return id;
     }
@@ -57,15 +58,15 @@ public final class Product {
 
     public static class Builder {
 
-        private String id = NEW_INSTANCE_ID;
+        private String id = IdentifiableEntity.NEW_ENTITY_ID;
         private String name;
         private String description;
         private Price price;
         private List<URL> images;
         private List<Component> components;
 
-        public Builder withId(final String id) {
-            this.id = id;
+        public Builder withIdFrom(final Product productFrom) {
+            this.id = productFrom.getId();
             return this;
         }
 

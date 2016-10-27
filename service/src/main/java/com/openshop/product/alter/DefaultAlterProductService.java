@@ -2,6 +2,7 @@ package com.openshop.product.alter;
 
 import static com.openshop.validation.Validation.notNull;
 
+import com.openshop.dao.EntityDao;
 import com.openshop.product.domain.Product;
 import com.openshop.product.exception.ProductOperationFailedException;
 
@@ -12,14 +13,15 @@ import com.openshop.product.exception.ProductOperationFailedException;
  */
 public class DefaultAlterProductService implements AlterProductService {
 
-    private AlterProductServiceDao alterProductServiceDao;
+    private EntityDao<Product> alterProductServiceDao;
 
-    public Product upsertProduct(final AlterProductRequestContext context) throws ProductOperationFailedException, IllegalArgumentException {
-        validateContext(context);
-        return alterProductServiceDao.upsertProduct(context);
+    @Override
+    public Product upsertProduct(final Product product) throws ProductOperationFailedException, IllegalArgumentException {
+        validateContext(product);
+        return alterProductServiceDao.upsertEntity(product, Product.class);
     }
 
-    private void validateContext(final AlterProductRequestContext context) {
+    private void validateContext(final Product context) {
         notNull(context, "context must not be null!");
     }
 }

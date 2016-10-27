@@ -12,6 +12,6 @@ import com.openshop.product.exception.ProductOperationFailedException;
  */
 public interface RetrieveProductService {
 
-    List<Product> retrieveProducts(final RetrieveProductRequestContext context) throws ProductOperationFailedException, IllegalArgumentException;
+    List<Product> retrieveProducts(final RetrieveEntityRequestContext context) throws ProductOperationFailedException, IllegalArgumentException;
 
 }

@@ -20,4 +20,18 @@ public class Validation {
         }
     }
 
+    /**
+     * Validates if a string has content.
+     *
+     * @param toValidate the string to validate
+     * @param message specific exception message if validation fails
+     * @throws IllegalArgumentException if {@code toValidate} is null or empty
+     */
+    public static void hasText(final String toValidate, final String message) {
+        notNull(toValidate, message);
+        if (toValidate.trim().length() == 0) {
+            throw new IllegalArgumentException(message);
+        }
+    }
+
 }

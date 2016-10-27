@@ -4,20 +4,23 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 
 /**
+ * Holds data base connection.
+ *
  * @author Laszlo_Sisa
  */
 public class MongoDatabaseConnectionHolder {
 
     private final MongoDatabase database;
 
-    //TODO: extract these to config
-    private final String databaseName = "OpenShop";
-    private final String databaseHost = "localhost";
-    private final int databasePort = 27017;
-
-    public MongoDatabaseConnectionHolder() {
-        MongoClient mongoClient = new MongoClient(databaseHost, databasePort);
-        database = mongoClient.getDatabase(databaseName);
+    /**
+     * DI constructor.
+     *
+     * @param databaseConfigurationFactory {@link DatabaseConfigurationFactory}.
+     */
+    public MongoDatabaseConnectionHolder(final DatabaseConfigurationFactory databaseConfigurationFactory) {
+        DatabaseConfiguration databaseConfiguration = databaseConfigurationFactory.createConfiguration();
+        MongoClient mongoClient = new MongoClient(databaseConfiguration.getHostName(), databaseConfiguration.getConnectionPort());
+        database = mongoClient.getDatabase(databaseConfiguration.getDatabaseName());
     }
 
     public MongoDatabase getDatabase() {

@@ -17,20 +17,20 @@ import com.openshop.product.domain.Price;
 import com.openshop.product.domain.Product;
 
 /**
- * Unit test for {@link ObjectToJsonParser}.
+ * Unit test for {@link JsonParser}.
  *
  * @author Laszlo_Sisa
  */
-public class ObjectToJsonParserTest {
+public class JsonParserTest {
 
     private static final Price TEN_DOLLARS = new Price(BigDecimal.TEN, Currency.getInstance(Locale.US));
-    private static final String EXPECTED_JSON = "{\"id\":\"-1\",\"name\":\"name\",\"description\":\"description\",\"price\":{\"nativeAmount\":10,\"nativeCurrency\":\"USD\"},\"images\":[\"http://url\"],\"components\":[{\"id\":\"-1\"}]}";
+    private static final String EXPECTED_JSON = "{\"id\":\"-1\",\"name\":\"name\",\"description\":\"description\",\"price\":{\"nativeAmount\":10,\"nativeCurrency\":\"USD\"},\"images\":[\"http://url\"],\"components\":[{\"id\":\"-1\",\"description\":\"description\"}]}";
 
-    private ObjectToJsonParser underTest;
+    private JsonParser underTest;
 
     @BeforeClass
     public void setUp() {
-        underTest = new ObjectToJsonParser();
+        underTest = new JsonParser();
     }
 
     @Test
@@ -43,10 +43,10 @@ public class ObjectToJsonParserTest {
     }
 
     private Product createProduct() throws MalformedURLException {
-        Component component = new Component.Builder().withId("-1").build();
+        Component component = new Component.Builder().withDescription("description").build();
         URL images = new URL("http://url");
-        return new Product.Builder().withComponents(singletonList(component)).withDescription("description").withId("-1")
-                .withImages(singletonList(images)).withName("name").withPrice(TEN_DOLLARS).build();
+        return new Product.Builder().withComponents(singletonList(component)).withDescription("description").withImages(singletonList(images))
+                .withName("name").withPrice(TEN_DOLLARS).build();
     }
 
 }

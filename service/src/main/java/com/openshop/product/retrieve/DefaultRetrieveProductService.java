@@ -4,6 +4,7 @@ import static com.openshop.validation.Validation.notNull;
 
 import java.util.List;
 
+import com.openshop.dao.EntityDao;
 import com.openshop.product.domain.Product;
 import com.openshop.product.exception.ProductOperationFailedException;
 
@@ -14,15 +15,16 @@ import com.openshop.product.exception.ProductOperationFailedException;
  */
 public class DefaultRetrieveProductService implements RetrieveProductService {
 
-    private RetrieveProductDao retrieveProductDao;
+    private EntityDao<Product> retrieveProductDao;
 
-    public List<Product> retrieveProducts(final RetrieveProductRequestContext context)
+    @Override
+    public List<Product> retrieveProducts(final RetrieveEntityRequestContext context)
         throws ProductOperationFailedException, IllegalArgumentException {
         validateContext(context);
-        return retrieveProductDao.retrieveProduct(context);
+        return retrieveProductDao.retrieveEntities(context, Product.class);
     }
 
-    private void validateContext(final RetrieveProductRequestContext context) {
+    private void validateContext(final RetrieveEntityRequestContext context) {
         notNull(context, "context must not be null!");
     }
 }
