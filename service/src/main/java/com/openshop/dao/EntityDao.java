@@ -3,7 +3,7 @@ package com.openshop.dao;
 import java.util.List;
 
 import com.openshop.domain.IdentifiableEntity;
-import com.openshop.product.retrieve.RetrieveEntityRequestContext;
+import com.openshop.product.service.retrieve.RetrieveEntityRequestContext;
 
 /**
  * @author Laszlo_Sisa

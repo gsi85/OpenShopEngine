@@ -1,4 +1,4 @@
-package com.openshop.product.alter;
+package com.openshop.product.service;
 
 import com.openshop.product.domain.Product;
 import com.openshop.product.exception.ProductOperationFailedException;
@@ -8,7 +8,7 @@ import com.openshop.product.exception.ProductOperationFailedException;
  *
  * @author Laszlo_Sisa
  */
-public interface AlterProductService {
+public interface ProductService {
 
     Product upsertProduct(final Product context) throws ProductOperationFailedException, IllegalArgumentException;
 

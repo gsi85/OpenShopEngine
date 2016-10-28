@@ -1,4 +1,4 @@
-package com.openshop.product.alter;
+package com.openshop.dao;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import com.openshop.dao.EntityDao;
 import com.openshop.domain.IdentifiableEntity;
 import com.openshop.entity.EntityManager;
 import com.openshop.product.exception.ComponentOperationFailedException;
-import com.openshop.product.retrieve.RetrieveEntityRequestContext;
+import com.openshop.product.service.retrieve.RetrieveEntityRequestContext;
 
 /**
  * Default implementation of {@link EntityDao}.

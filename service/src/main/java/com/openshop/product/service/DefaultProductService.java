@@ -1,4 +1,4 @@
-package com.openshop.product.delete;
+package com.openshop.product.service;
 
 import static com.openshop.validation.Validation.notNull;
 
@@ -7,18 +7,18 @@ import com.openshop.product.domain.Product;
 import com.openshop.product.exception.ProductOperationFailedException;
 
 /**
- * Default implementation of {@link DeleteProductService}.
+ * Default implementation of {@link ProductService}.
  *
  * @author Laszlo_Sisa
  */
-public class DefaultDeleteProductService implements DeleteProductService {
+public class DefaultProductService implements ProductService {
 
-    private EntityDao<Product> deleteProductDao;
+    private EntityDao<Product> entityDao;
 
     @Override
-    public boolean deleteProduct(final Product product) throws ProductOperationFailedException, IllegalArgumentException {
+    public Product upsertProduct(final Product product) throws ProductOperationFailedException, IllegalArgumentException {
         validateContext(product);
-        return deleteProductDao.deleteEntity(product, Product.class);
+        return entityDao.upsertEntity(product, Product.class);
     }
 
     private void validateContext(final Product context) {

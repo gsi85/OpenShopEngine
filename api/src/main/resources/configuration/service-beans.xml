@@ -7,7 +7,7 @@
     <constructor-arg name="entityDao" ref="entityDao"/>
   </bean>
 
-  <bean id="entityDao" class="com.openshop.product.alter.DefaultEntityDao">
+  <bean id="entityDao" class="com.openshop.dao.DefaultEntityDao">
     <constructor-arg name="entityManager">
       <bean class="com.openshop.entity.MongoEntityManager">
         <constructor-arg name="jsonParser">
@@ -17,9 +17,9 @@
           <bean class="com.openshop.connection.MongoDatabaseConnectionHolder">
             <constructor-arg name="databaseConfigurationFactory">
               <bean class="com.openshop.connection.DatabaseConfigurationFactory">
-                <constructor-arg name="databaseName" value="OpenShop"/>
-                <constructor-arg name="hostName" value="localhost"/>
-                <constructor-arg name="connectionPort" value="27017"/>
+                <constructor-arg name="databaseName" value="${shop.engine.db.name}"/>
+                <constructor-arg name="hostName" value="${shop.engine.db.host}"/>
+                <constructor-arg name="connectionPort" value="${shop.engine.db.port}"/>
               </bean>
             </constructor-arg>
           </bean>

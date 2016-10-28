@@ -1,4 +1,4 @@
-package com.openshop.product.alter;
+package com.openshop.product.service;
 
 import static com.openshop.validation.Validation.notNull;
 
@@ -7,7 +7,7 @@ import java.util.List;
 import com.openshop.dao.EntityDao;
 import com.openshop.product.domain.Component;
 import com.openshop.product.exception.ComponentOperationFailedException;
-import com.openshop.product.retrieve.RetrieveEntityRequestContext;
+import com.openshop.product.service.retrieve.RetrieveEntityRequestContext;
 
 /**
  * Default implementation of {@link ComponentService}.

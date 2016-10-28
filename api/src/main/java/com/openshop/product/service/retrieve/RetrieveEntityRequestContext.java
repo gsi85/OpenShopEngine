@@ -1,4 +1,4 @@
-package com.openshop.product.retrieve;
+package com.openshop.product.service.retrieve;
 
 import static com.openshop.validation.Validation.notNull;
 
