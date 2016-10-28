@@ -12,7 +12,7 @@ import java.util.Currency;
  */
 public class Price {
 
-    private static final Currency NATIVE_CURRENCY = Currency.getInstance("USD");
+    private static final Currency NATIVE_CURRENCY = Currency.getInstance("HUF");
 
     private final BigDecimal nativeAmount;
     private final Currency nativeCurrency;

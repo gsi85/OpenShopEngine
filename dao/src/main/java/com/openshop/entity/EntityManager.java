@@ -14,9 +14,9 @@ public interface EntityManager<T extends IdentifiableEntity> {
      *
      * @param entityToInsert entity to persist
      * @param typeParameterClass type parameter class
-     * @return id of newly created entity
+     * @return persisted entity with it's id
      */
-    String insertEntity(final T entityToInsert, final Class<T> typeParameterClass);
+    T insertEntity(final T entityToInsert, final Class<T> typeParameterClass);
 
     /**
      * Finds an entity by it's unique id.
@@ -34,7 +34,7 @@ public interface EntityManager<T extends IdentifiableEntity> {
      * @param typeParameterClass type parameter class
      * @return updated entity
      */
-    boolean updateEntry(T entity, final Class<T> typeParameterClass);
+    T updateEntry(T entity, final Class<T> typeParameterClass);
 
     /**
      * Deletes an entity based on it's id.

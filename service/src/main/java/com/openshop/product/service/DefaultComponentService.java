@@ -5,9 +5,9 @@ import static com.openshop.validation.Validation.notNull;
 import java.util.List;
 
 import com.openshop.dao.EntityDao;
+import com.openshop.filer.EntityFilter;
 import com.openshop.product.domain.Component;
 import com.openshop.product.exception.ComponentOperationFailedException;
-import com.openshop.product.service.retrieve.RetrieveEntityRequestContext;
 
 /**
  * Default implementation of {@link ComponentService}.
@@ -33,9 +33,8 @@ public class DefaultComponentService implements ComponentService {
     }
 
     @Override
-    public List<Component> findComponents(final RetrieveEntityRequestContext context)
-        throws ComponentOperationFailedException, IllegalArgumentException {
-        notNull(context, "context must not be null!");
+    public List<Component> findComponents(final EntityFilter filter) throws ComponentOperationFailedException, IllegalArgumentException {
+        notNull(filter, "context must not be null!");
         try {
             return null;
         } catch (final Exception exception) {

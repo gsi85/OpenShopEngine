@@ -2,11 +2,10 @@ package com.openshop.dao;
 
 import java.util.List;
 
-import com.openshop.dao.EntityDao;
 import com.openshop.domain.IdentifiableEntity;
 import com.openshop.entity.EntityManager;
+import com.openshop.filer.EntityFilter;
 import com.openshop.product.exception.ComponentOperationFailedException;
-import com.openshop.product.service.retrieve.RetrieveEntityRequestContext;
 
 /**
  * Default implementation of {@link EntityDao}.
@@ -22,7 +21,12 @@ public class DefaultEntityDao<T extends IdentifiableEntity> implements EntityDao
     }
 
     @Override
-    public List<T> retrieveEntities(final RetrieveEntityRequestContext context, final Class<T> entityTypeClass) {
+    public T upsertEntity(final T entity, final Class<T> entityTypeClass) throws ComponentOperationFailedException {
+        return isNewEntity(entity) ? insertEntity(entity, entityTypeClass) : updateEntity(entity, entityTypeClass);
+    }
+
+    @Override
+    public List<T> retrieveEntities(final EntityFilter filter, final Class<T> entityTypeClass) {
         return null;
     }
 
@@ -31,21 +35,15 @@ public class DefaultEntityDao<T extends IdentifiableEntity> implements EntityDao
         return entityManager.deleteEntity(entity, entityTypeClass);
     }
 
-    @Override
-    public T upsertEntity(final T entity, final Class<T> entityTypeClass) throws ComponentOperationFailedException {
-        return isNewEntity(entity) ? insertEntity(entity, entityTypeClass) : updateEntity(entity, entityTypeClass);
-    }
-
     private boolean isNewEntity(final T entity) {
         return IdentifiableEntity.NEW_ENTITY_ID.equals(entity.getId());
     }
 
     private T insertEntity(final T entry, final Class<T> entityTypeClass) {
-        String id = entityManager.insertEntity(entry, entityTypeClass);
-        return entityManager.findById(id, entityTypeClass);
+        return entityManager.insertEntity(entry, entityTypeClass);
     }
 
     private T updateEntity(final T entity, Class<T> entityTypeClass) {
-        return entityManager.updateEntry(entity, entityTypeClass) ? entityManager.findById(entity.getId(), entityTypeClass) : null;
+        return entityManager.updateEntry(entity, entityTypeClass);
     }
 }
