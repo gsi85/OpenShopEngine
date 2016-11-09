@@ -7,22 +7,26 @@
     <constructor-arg name="entityDao" ref="entityDao"/>
   </bean>
 
+  <bean id="productService" class="com.openshop.product.service.DefaultProductService">
+    <constructor-arg name="entityDao" ref="entityDao"/>
+  </bean>
+
   <bean id="entityDao" class="com.openshop.dao.DefaultEntityDao">
     <constructor-arg name="entityManager">
       <bean class="com.openshop.entity.MongoEntityManager">
-        <constructor-arg name="connectionHolder">
-          <bean class="com.openshop.connection.MongoDatabaseConnectionHolder">
-            <constructor-arg name="databaseConfigurationFactory">
-              <bean class="com.openshop.connection.DatabaseConfigurationFactory">
-                <constructor-arg name="databaseName" value="${shop.engine.db.name}"/>
-                <constructor-arg name="hostName" value="${shop.engine.db.host}"/>
-                <constructor-arg name="connectionPort" value="${shop.engine.db.port}"/>
-              </bean>
-            </constructor-arg>
-          </bean>
-        </constructor-arg>
+        <constructor-arg name="connectionHolder" ref="mongoDatabaseConnectionHolder" />
         <constructor-arg name="entityToDocumentTransformer" ref="entityToDocumentTransformer"/>
         <constructor-arg name="documentToEntityTransformer" ref="documentToEntityTransformer"/>
+      </bean>
+    </constructor-arg>
+  </bean>
+
+  <bean id="mongoDatabaseConnectionHolder" class="com.openshop.connection.MongoDatabaseConnectionHolder">
+    <constructor-arg name="databaseConfigurationFactory">
+      <bean class="com.openshop.connection.DatabaseConfigurationFactory">
+        <constructor-arg name="databaseName" value="${shop.engine.db.name}"/>
+        <constructor-arg name="hostName" value="${shop.engine.db.host}"/>
+        <constructor-arg name="connectionPort" value="${shop.engine.db.port}"/>
       </bean>
     </constructor-arg>
   </bean>
@@ -35,6 +39,11 @@
             <constructor-arg name="jsonParser" ref="jsonParser"/>
           </bean>
         </entry>
+        <entry key="com.openshop.product.service.domain.PersistedProduct">
+          <bean class="com.openshop.transformer.document.PersistedProductToDocumentTransformer">
+            <constructor-arg name="jsonParser" ref="jsonParser"/>
+          </bean>
+        </entry>
       </map>
     </constructor-arg>
   </bean>
@@ -44,6 +53,11 @@
       <map>
         <entry key="com.openshop.product.domain.Component">
           <bean class="com.openshop.transformer.entity.ComponentToEntityTransformer">
+            <constructor-arg name="jsonParser" ref="jsonParser"/>
+          </bean>
+        </entry>
+        <entry key="com.openshop.product.service.domain.PersistedProduct">
+          <bean class="com.openshop.transformer.entity.PersistedProductEntityTransformer">
             <constructor-arg name="jsonParser" ref="jsonParser"/>
           </bean>
         </entry>
